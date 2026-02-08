@@ -1,0 +1,17 @@
+[project]
+name = "gtaf-runtime"
+version = "0.1.0"
+description = "Reference implementation of the GTAF Runtime Enforcement Core"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+authors = [
+  { name = "TNT Intelligence", email = "contact@tnt-intelligence.com" }
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://gtaf.tnt-intelligence.com"
+Repository = "https://github.com/TNT-Intelligence/gtaf-runtime"
