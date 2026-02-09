@@ -7,3 +7,7 @@
 # Python cache
 __pycache__/
 *.py[cod]
+
+# Python packaging artifacts
+build/
+*.egg-info/
