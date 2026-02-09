@@ -18,7 +18,7 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://gtaf.tnt-intelligence.com"
-Repository = "https://github.com/TNT-Intelligence/gtaf-runtime"
+Repository = "https://github.com/TNT-Intelligence/gtaf-runtime-py"
 
 [tool.setuptools.packages.find]
 where = ["."]

@@ -1,5 +1,7 @@
-# GTAF Runtime
+# GTAF Runtime (Python)
 Official reference implementation of the GTAF Runtime Enforcement core.
+
+This repository is `gtaf-runtime-py`.
 
 `gtaf-runtime` is a **deterministic, artifact-driven enforcement gate** for delegated actions.  
 It consumes evaluated governance outputs (for example DRC + referenced artifacts) and returns binary runtime outcomes.
