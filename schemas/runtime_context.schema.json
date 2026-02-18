@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/runtime_context.schema.json",
+  "title": "Runtime Context Projection Schema",
+  "description": "Projection v0.1 schema for runtime context input consumed by gtaf-runtime enforce().",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "scope": {
+      "type": "string"
+    },
+    "component": {
+      "type": "string"
+    },
+    "interface": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

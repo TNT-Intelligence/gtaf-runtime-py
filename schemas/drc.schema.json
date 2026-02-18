@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/drc.schema.json",
+  "title": "DRC Projection Schema",
+  "description": "Projection v0.1 schema for drc input consumed by gtaf-runtime enforce().",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "result": {
+      "type": "string",
+      "enum": ["PERMITTED", "NOT_PERMITTED"]
+    },
+    "gtaf_ref": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string",
+          "const": "0.1"
+        }
+      },
+      "required": ["version"]
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "refs": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "sb": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dr": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rb": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": ["sb", "dr", "rb"]
+    }
+  },
+  "required": ["id", "revision", "result", "gtaf_ref", "scope", "refs"]
+}

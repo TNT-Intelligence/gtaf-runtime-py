@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/dr.schema.json",
+  "title": "DR Projection Schema",
+  "description": "Projection v0.1 schema for DR artifact projection consumed by gtaf-runtime enforce().",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "linked_scopes": {
+      "type": "array"
+    },
+    "decisions": {
+      "type": "array"
+    },
+    "delegation_mode": {
+      "type": "string",
+      "enum": ["SEMI_AUTONOMOUS", "AUTONOMOUS"]
+    }
+  },
+  "required": []
+}

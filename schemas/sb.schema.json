@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/sb.schema.json",
+  "title": "SB Projection Schema",
+  "description": "Projection v0.1 schema for SB artifact projection consumed by gtaf-runtime enforce().",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "linked_scopes": {
+      "type": "array"
+    },
+    "included_components": {
+      "type": "array"
+    },
+    "excluded_components": {
+      "type": "array"
+    },
+    "allowed_interfaces": {
+      "type": "array"
+    }
+  },
+  "required": []
+}

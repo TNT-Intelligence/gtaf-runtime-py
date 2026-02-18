@@ -22,6 +22,14 @@ The runtime projection contract is formally defined in `SPEC.md`.
 
 Projection v0.1 documents the exact input surface consumed by `enforce()` and reflects the current implementation without redefining normative GTAF artifacts.
 
+### JSON Schemas
+
+Projection v0.1 is additionally formalized using JSON Schemas under `schemas/`.
+
+These schemas describe the exact runtime projection surface consumed by `enforce()` and can be used by integrators or SDKs to validate inputs prior to runtime execution.
+
+Schema validation is not performed automatically by the runtime core.
+
 ## Non-Goals
 `gtaf-runtime` is **not**:
 - a governance authoring tool
