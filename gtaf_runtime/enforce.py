@@ -6,6 +6,8 @@ from typing import Any
 from . import errors
 from .types import EnforcementResult
 
+PROJECTION_CONTRACT_VERSION = "0.1"
+
 def evaluate(
     drc: dict[str, Any],
     context: dict[str, Any],

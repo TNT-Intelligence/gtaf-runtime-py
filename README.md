@@ -17,6 +17,11 @@ This repository contains:
 - machine-readable deny reason codes
 - tests for allow/deny and rule-order edge cases
 
+## Runtime Specification
+The runtime projection contract is formally defined in `SPEC.md`.
+
+Projection v0.1 documents the exact input surface consumed by `enforce()` and reflects the current implementation without redefining normative GTAF artifacts.
+
 ## Non-Goals
 `gtaf-runtime` is **not**:
 - a governance authoring tool
