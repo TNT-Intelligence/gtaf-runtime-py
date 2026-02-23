@@ -6,7 +6,7 @@ from pathlib import Path
 from gtaf_runtime import evaluate
 
 
-FIXTURE_ROOT = Path(__file__).parent / "fixtures" / "projection_v0_1"
+FIXTURE_ROOT = Path(__file__).parent.parent / "contract_fixtures" / "v0.1"
 CASE_DIRS = [
     "happy_execute",
     "deny_missing_reference",

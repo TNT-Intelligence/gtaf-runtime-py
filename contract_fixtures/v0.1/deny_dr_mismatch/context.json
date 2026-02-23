@@ -1,0 +1,6 @@
+{
+  "scope": "ops.prod",
+  "component": "ops.agent",
+  "interface": "ops-api",
+  "action": "delete_cluster"
+}

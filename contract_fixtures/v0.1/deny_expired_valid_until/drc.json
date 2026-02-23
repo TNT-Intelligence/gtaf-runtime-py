@@ -1,0 +1,16 @@
+{
+  "id": "DRC-FX-003",
+  "revision": 1,
+  "result": "PERMITTED",
+  "gtaf_ref": {
+    "version": "0.1"
+  },
+  "scope": "ops.prod",
+  "valid_from": "2026-01-01T00:00:00Z",
+  "valid_until": "2026-02-01T00:00:00Z",
+  "refs": {
+    "sb": ["SB-FX-003"],
+    "dr": ["DR-FX-003"],
+    "rb": ["RB-FX-003"]
+  }
+}

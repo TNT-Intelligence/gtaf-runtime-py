@@ -1,0 +1,6 @@
+{
+  "scope": "ops.prod",
+  "component": "outside.component",
+  "interface": "ops-api",
+  "action": "restart_worker"
+}

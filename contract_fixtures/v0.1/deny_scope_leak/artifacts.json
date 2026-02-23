@@ -1,0 +1,23 @@
+{
+  "SB-FX-004": {
+    "scope": "ops.prod",
+    "included_components": ["ops.agent"],
+    "excluded_components": [],
+    "allowed_interfaces": ["ops-api"],
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_until": "2026-12-31T00:00:00Z"
+  },
+  "DR-FX-004": {
+    "scope": "ops.prod",
+    "decisions": ["restart_worker"],
+    "delegation_mode": "AUTONOMOUS",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_until": "2026-12-31T00:00:00Z"
+  },
+  "RB-FX-004": {
+    "scope": "ops.prod",
+    "active": true,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_until": "2026-12-31T00:00:00Z"
+  }
+}

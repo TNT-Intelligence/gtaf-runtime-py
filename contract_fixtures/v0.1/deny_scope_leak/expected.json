@@ -1,0 +1,5 @@
+{
+  "outcome": "DENY",
+  "reason_code": "SCOPE_LEAK",
+  "now": "2026-02-08T12:00:00Z"
+}

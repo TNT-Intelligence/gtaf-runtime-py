@@ -7,7 +7,7 @@ from typing import Any
 from gtaf_runtime import enforce
 
 
-FIXTURE_ROOT = Path(__file__).parent / "fixtures" / "projection_v0_1"
+FIXTURE_ROOT = Path(__file__).parent.parent / "contract_fixtures" / "v0.1"
 SCHEMA_ROOT = Path(__file__).parent.parent / "schemas"
 CASE_DIRS = [
     "happy_execute",
