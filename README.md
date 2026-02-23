@@ -22,6 +22,7 @@ The runtime projection contract is formally defined in `SPEC.md`.
 
 Projection v0.1 documents the exact input surface consumed by `enforce()` and reflects the current implementation without redefining normative GTAF artifacts.
 The canonical Projection v0.1 contract fixture kit is `contract_fixtures/v0.1/`.
+Normative Projection v0.1 runtime contract: `docs/projection-v0.1.md`.
 
 ### JSON Schemas
 
