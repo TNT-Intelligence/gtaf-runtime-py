@@ -5,8 +5,12 @@ from pathlib import Path
 
 from gtaf_runtime import evaluate
 
+try:
+    from tests._fixture_paths import CONTRACT_FIXTURE_ROOT
+except ModuleNotFoundError:
+    from _fixture_paths import CONTRACT_FIXTURE_ROOT
 
-FIXTURE_ROOT = Path(__file__).parent.parent / "contract_fixtures" / "v0.1"
+FIXTURE_ROOT = CONTRACT_FIXTURE_ROOT
 CASE_DIRS = [
     "happy_execute",
     "deny_missing_reference",

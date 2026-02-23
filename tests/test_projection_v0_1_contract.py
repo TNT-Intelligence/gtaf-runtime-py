@@ -6,8 +6,12 @@ from typing import Any
 
 from gtaf_runtime import enforce
 
+try:
+    from tests._fixture_paths import CONTRACT_FIXTURE_ROOT
+except ModuleNotFoundError:
+    from _fixture_paths import CONTRACT_FIXTURE_ROOT
 
-FIXTURE_ROOT = Path(__file__).parent.parent / "contract_fixtures" / "v0.1"
+FIXTURE_ROOT = CONTRACT_FIXTURE_ROOT
 SCHEMA_ROOT = Path(__file__).parent.parent / "schemas"
 CASE_DIRS = [
     "happy_execute",
