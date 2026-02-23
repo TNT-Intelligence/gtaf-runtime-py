@@ -65,6 +65,14 @@ Projection v0.1 reflects the current `enforce()` implementation and does not red
 | `linked_scopes` | `.get()` | conditionally required | optional alternate scope match list |
 | `active` | `.get()` | conditionally required | interpreted by truthiness (`bool(rb.get("active"))`) |
 
+### Core Read Surface and Validation Status (v0.1)
+
+- Projection v0.1 is the stable runtime contract surface for `enforce()`: only the field paths listed above are read by the core decision logic.
+- The runtime consumes a projection payload (`drc`, `context`, resolved `sb`/`dr`/`rb`) and does not consume full normative GTAF artifact models.
+- Unknown or extra fields in `drc`, `context`, and artifacts are ignored unless they overlap with a field path read by the core.
+- `schemas/` define Projection v0.1 validation artifacts; they can be used upstream to validate projection payloads before runtime execution.
+- Current runtime check status (implementation-derived): `drc` structure is checked by `_validate_drc_schema`; `context`, `sb`, `dr`, and `rb` are not JSON-schema-validated by the runtime before rule checks.
+
 ## Known Runtime Implicit Assumptions (v0.1)
 
 - Datetimes are parsed via `datetime.fromisoformat` after replacing `Z` with `+00:00`.
