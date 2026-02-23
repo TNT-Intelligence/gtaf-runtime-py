@@ -1,0 +1,6 @@
+{
+  "scope": "ops.dev",
+  "component": "ops.agent",
+  "interface": "ops-api",
+  "action": "restart_worker"
+}
