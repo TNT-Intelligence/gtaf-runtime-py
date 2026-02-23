@@ -72,5 +72,5 @@
       "required": ["sb", "dr", "rb"]
     }
   },
-  "required": ["id", "revision", "result", "gtaf_ref", "scope", "refs"]
+  "required": ["id", "revision", "result", "gtaf_ref", "scope", "valid_from", "valid_until", "refs"]
 }
