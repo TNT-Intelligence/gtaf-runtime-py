@@ -7,6 +7,15 @@ from . import errors
 from .types import EnforcementResult
 
 PROJECTION_CONTRACT_VERSION = "0.1"
+_DEFAULT_SUPPORTED_PROJECTION_VERSIONS = frozenset({PROJECTION_CONTRACT_VERSION})
+
+
+def get_supported_projection_versions() -> set[str]:
+    return set(_DEFAULT_SUPPORTED_PROJECTION_VERSIONS)
+
+
+def validate_drc_structure(drc: dict[str, Any]) -> bool:
+    return _validate_drc_schema(drc)
 
 def evaluate(
     drc: dict[str, Any],
@@ -20,7 +29,7 @@ def evaluate(
     Deterministic GTAF-3 runtime gate.
     Returns EXECUTE only if all checks pass; otherwise DENY with the first failing reason.
     """
-    supported_versions = supported_versions or {"0.1"}
+    supported_versions = supported_versions or get_supported_projection_versions()
     ts = now or datetime.now(UTC)
 
     try:
