@@ -144,9 +144,11 @@ The SDK MUST NOT alter or reinterpret runtime enforcement semantics.
 
 ## JSON Schemas
 
-Projection v0.1 is additionally formalized using JSON Schemas under `schemas/`.
+Projection v0.1 is additionally formalized using JSON Schemas under `gtaf_runtime/schemas/`.
 
 These schemas describe the exact runtime projection surface consumed by `enforce()` and can be used by integrators or SDKs to validate inputs prior to runtime execution.
+
+Packaged schema resources can be accessed via `importlib.resources` from `gtaf_runtime.schemas`.
 
 Schema validation is not performed automatically by the runtime core.
 
@@ -173,7 +175,7 @@ from gtaf_runtime import evaluate  # alias to enforce
 ## Installation
 Install from PyPI:
 ```sh
-pip install gtaf-runtime-py
+pip install gtaf-runtime
 ```
 
 Install from local checkout:
@@ -201,7 +203,7 @@ python -m unittest discover -s tests -p 'test_*.py' -v
 ## Repository Structure
 - `gtaf_runtime/`: runtime library
 - `tests/`: enforcement behavior tests
-- `schemas/`: schema placeholders / artifacts for future interoperability alignment
+- `gtaf_runtime/schemas/`: packaged Projection v0.1 schema artifacts
 
 ## License
 See `LICENSE`.
