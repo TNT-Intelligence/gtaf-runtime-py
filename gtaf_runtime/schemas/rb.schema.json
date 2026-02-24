@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/rb.schema.json",
+  "$id": "https://gtaf.tnt-intelligence.com/projection/v0.1/schemas/rb.schema.json",
   "title": "RB Projection Schema",
   "description": "Projection v0.1 schema for RB artifact projection consumed by gtaf-runtime enforce().",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://tnt-intelligence.com/gtaf-runtime/schemas/dr.schema.json",
+  "$id": "https://gtaf.tnt-intelligence.com/projection/v0.1/schemas/dr.schema.json",
   "title": "DR Projection Schema",
   "description": "Projection v0.1 schema for DR artifact projection consumed by gtaf-runtime enforce().",
   "type": "object",
