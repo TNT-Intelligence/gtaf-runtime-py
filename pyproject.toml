@@ -7,7 +7,8 @@ name = "gtaf-runtime"
 version = "0.1.0"
 description = "Reference implementation of the GTAF Runtime Enforcement Core"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 
 authors = [
