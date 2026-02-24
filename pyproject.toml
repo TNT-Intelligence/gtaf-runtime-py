@@ -24,3 +24,6 @@ Repository = "https://github.com/TNT-Intelligence/gtaf-runtime-py"
 where = ["."]
 include = ["gtaf_runtime*"]
 exclude = ["tests*", "schemas*"]
+
+[tool.setuptools.package-data]
+gtaf_runtime = ["schemas/*.json"]

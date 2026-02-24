@@ -170,6 +170,22 @@ Backward compatibility:
 from gtaf_runtime import evaluate  # alias to enforce
 ```
 
+## Installation
+Install from PyPI:
+```sh
+pip install gtaf-runtime-py
+```
+
+Install from local checkout:
+```sh
+pip install .
+```
+
+Minimal import verification:
+```sh
+python -c "import gtaf_runtime; from gtaf_runtime import enforce; print('ok')"
+```
+
 ## Runtime Semantics (Minimal)
 - Outcomes: `EXECUTE` or `DENY`
 - Decision mode: deterministic, first failing rule wins

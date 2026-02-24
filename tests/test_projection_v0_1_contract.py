@@ -12,7 +12,7 @@ except ModuleNotFoundError:
     from _fixture_paths import CONTRACT_FIXTURE_ROOT
 
 FIXTURE_ROOT = CONTRACT_FIXTURE_ROOT
-SCHEMA_ROOT = Path(__file__).parent.parent / "schemas"
+SCHEMA_ROOT = Path(__file__).parent.parent / "gtaf_runtime" / "schemas"
 CASE_DIRS = [
     "happy_execute",
     "deny_missing_reference",
