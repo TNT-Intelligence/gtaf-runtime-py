@@ -8,7 +8,7 @@ It consumes evaluated governance outputs (for example DRC + referenced artifacts
 
 ## Status
 This repository is the **runtime enforcement implementation**, not the normative reference.  
-Current package version: **0.1.0**.
+Current package version: **0.1.1**.
 
 ## Scope
 This repository contains:
