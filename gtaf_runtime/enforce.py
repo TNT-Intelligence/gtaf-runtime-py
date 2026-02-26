@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from . import errors
@@ -8,6 +8,7 @@ from .types import EnforcementResult
 
 PROJECTION_CONTRACT_VERSION = "0.1"
 _DEFAULT_SUPPORTED_PROJECTION_VERSIONS = frozenset({PROJECTION_CONTRACT_VERSION})
+UTC = timezone.utc
 
 
 def get_supported_projection_versions() -> set[str]:

@@ -1,7 +1,9 @@
 import unittest
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 
 from gtaf_runtime import evaluate
+
+UTC = timezone.utc
 
 
 def _base() -> tuple[dict, dict, dict, datetime]:
