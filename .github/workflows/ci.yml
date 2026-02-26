@@ -1,0 +1,136 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    name: Unit Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package (editable)
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+
+  packaging-smoke:
+    name: Packaging Smoke Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packaging tools
+        run: python -m pip install --upgrade pip build
+
+      - name: Build package
+        run: python -m build
+
+      - name: Create clean venv and install wheel
+        run: |
+          python -m venv venv_test
+          source venv_test/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install dist/*.whl
+
+      - name: Import smoke test
+        run: |
+          source venv_test/bin/activate
+          python -c "import gtaf_runtime"
+          python -c "from gtaf_runtime import enforce"
+
+      - name: Wheel enforce smoke test
+        run: |
+          source venv_test/bin/activate
+          python - <<'PY'
+          import json
+          import tempfile
+          from pathlib import Path
+
+          from gtaf_runtime import enforce
+
+          with tempfile.TemporaryDirectory() as tmp:
+              base = Path(tmp)
+              drc_path = base / "drc.json"
+              artifacts_path = base / "artifacts.json"
+              context_path = base / "context.json"
+
+              drc = {
+                  "id": "DRC-SMOKE-001",
+                  "revision": 1,
+                  "result": "PERMITTED",
+                  "gtaf_ref": {"version": "0.1"},
+                  "scope": "smoke.prod",
+                  "valid_from": "2026-01-01T00:00:00Z",
+                  "valid_until": "2026-12-31T00:00:00Z",
+                  "refs": {"sb": ["SB-SMOKE-001"], "dr": ["DR-SMOKE-001"], "rb": ["RB-SMOKE-001"]},
+              }
+              artifacts = {
+                  "SB-SMOKE-001": {
+                      "scope": "smoke.prod",
+                      "included_components": ["smoke.agent"],
+                      "excluded_components": [],
+                      "allowed_interfaces": ["smoke-api"],
+                      "valid_from": "2026-01-01T00:00:00Z",
+                      "valid_until": "2026-12-31T00:00:00Z",
+                  },
+                  "DR-SMOKE-001": {
+                      "scope": "smoke.prod",
+                      "decisions": ["run_smoke"],
+                      "delegation_mode": "AUTONOMOUS",
+                      "valid_from": "2026-01-01T00:00:00Z",
+                      "valid_until": "2026-12-31T00:00:00Z",
+                  },
+                  "RB-SMOKE-001": {
+                      "scope": "smoke.prod",
+                      "active": True,
+                      "valid_from": "2026-01-01T00:00:00Z",
+                      "valid_until": "2026-12-31T00:00:00Z",
+                  },
+              }
+              context = {
+                  "scope": "smoke.prod",
+                  "component": "smoke.agent",
+                  "interface": "smoke-api",
+                  "action": "run_smoke",
+              }
+
+              drc_path.write_text(json.dumps(drc), encoding="utf-8")
+              artifacts_path.write_text(json.dumps(artifacts), encoding="utf-8")
+              context_path.write_text(json.dumps(context), encoding="utf-8")
+
+              loaded_drc = json.loads(drc_path.read_text(encoding="utf-8"))
+              loaded_artifacts = json.loads(artifacts_path.read_text(encoding="utf-8"))
+              loaded_context = json.loads(context_path.read_text(encoding="utf-8"))
+
+              result = enforce(loaded_drc, loaded_context, loaded_artifacts)
+              assert result.outcome == "EXECUTE", result
+              assert result.reason_code == "OK", result
+          PY
